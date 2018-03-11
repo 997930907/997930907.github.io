@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html class="full-height">
+<script>
+  var linkEle = document.getElementById("myid");
+  var tmplink = linkEle.href;
+
+  var tmptitle = document.title;
+  document.addEventListener('visibilitychange', function() {
+    var isHidden = document.hidden;
+    if (isHidden) {
+      document.title = '喔唷，崩溃啦！';
+      linkEle.href = '/images/error.png';
+    } else {
+      document.title = tmptitle;
+      linkEle.href = tmplink;
+
+    }
+  });
+</script>
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
@@ -23,7 +40,7 @@
     <link rel="alternate" href="/atom.xml" title="余明星的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="http://yumingxing.github.io/images/my.png">
+    <link rel="icon" id="myid" href="http://yumingxing.github.io/images/my.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
