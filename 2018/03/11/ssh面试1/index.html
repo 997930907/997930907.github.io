@@ -8,18 +8,18 @@
   
   <title>SSH面试总结之一 | 余明星的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#SSH面试总结之一 ##1.为什么使用SSH框架?  Struts2：基于MVC设计模式的开源框架，有丰富的标签库。   Hibernate：开源的ORM框架（对象关系映射框架）。 Spring：基于IOC、AOP组件的轻量级开源框架。  ##2.为Struts2工作原理  浏览器发送Http请求到web服务器 执行Struts2核心过滤器StrutsPrepareAndExecuteFilet">
+  <meta name="description" content="SSH面试总结之一##1.为什么使用SSH框架?  Struts2：基于MVC设计模式的开源框架，有丰富的标签库。   Hibernate：开源的ORM框架（对象关系映射框架）。 Spring：基于IOC、AOP组件的轻量级开源框架。  2.为Struts2工作原理 浏览器发送Http请求到web服务器 执行Struts2核心过滤器StrutsPrepareAndExecuteFileter( 在">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH面试总结之一">
 <meta property="og:url" content="http://yumingxing.github.io/2018/03/11/ssh面试1/index.html">
 <meta property="og:site_name" content="余明星的博客">
-<meta property="og:description" content="#SSH面试总结之一 ##1.为什么使用SSH框架?  Struts2：基于MVC设计模式的开源框架，有丰富的标签库。   Hibernate：开源的ORM框架（对象关系映射框架）。 Spring：基于IOC、AOP组件的轻量级开源框架。  ##2.为Struts2工作原理  浏览器发送Http请求到web服务器 执行Struts2核心过滤器StrutsPrepareAndExecuteFilet">
+<meta property="og:description" content="SSH面试总结之一##1.为什么使用SSH框架?  Struts2：基于MVC设计模式的开源框架，有丰富的标签库。   Hibernate：开源的ORM框架（对象关系映射框架）。 Spring：基于IOC、AOP组件的轻量级开源框架。  2.为Struts2工作原理 浏览器发送Http请求到web服务器 执行Struts2核心过滤器StrutsPrepareAndExecuteFileter( 在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-11T14:28:39.298Z">
+<meta property="og:updated_time" content="2018-03-11T15:19:00.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH面试总结之一">
-<meta name="twitter:description" content="#SSH面试总结之一 ##1.为什么使用SSH框架?  Struts2：基于MVC设计模式的开源框架，有丰富的标签库。   Hibernate：开源的ORM框架（对象关系映射框架）。 Spring：基于IOC、AOP组件的轻量级开源框架。  ##2.为Struts2工作原理  浏览器发送Http请求到web服务器 执行Struts2核心过滤器StrutsPrepareAndExecuteFilet">
+<meta name="twitter:description" content="SSH面试总结之一##1.为什么使用SSH框架?  Struts2：基于MVC设计模式的开源框架，有丰富的标签库。   Hibernate：开源的ORM框架（对象关系映射框架）。 Spring：基于IOC、AOP组件的轻量级开源框架。  2.为Struts2工作原理 浏览器发送Http请求到web服务器 执行Struts2核心过滤器StrutsPrepareAndExecuteFileter( 在">
   
     <link rel="alternate" href="/atom.xml" title="余明星的博客" type="application/atom+xml">
   
@@ -154,15 +154,13 @@
             
         </div>
         <div class="content" style="overflow: auto">
-            <p>#SSH面试总结之一</p>
-<p>##1.为什么使用SSH框架?</p>
+            <h1 id="SSH面试总结之一"><a href="#SSH面试总结之一" class="headerlink" title="SSH面试总结之一"></a>SSH面试总结之一</h1><p>##1.为什么使用SSH框架?</p>
 <ul>
 <li>Struts2：基于MVC设计模式的开源框架，有丰富的标签库。  </li>
 <li>Hibernate：开源的ORM框架（对象关系映射框架）。</li>
 <li>Spring：基于IOC、AOP组件的轻量级开源框架。</li>
 </ul>
-<p>##2.为Struts2工作原理</p>
-<ol>
+<h2 id="2-为Struts2工作原理"><a href="#2-为Struts2工作原理" class="headerlink" title="2.为Struts2工作原理"></a>2.为Struts2工作原理</h2><ol>
 <li>浏览器发送Http请求到web服务器</li>
 <li>执行Struts2核心过滤器StrutsPrepareAndExecuteFileter( 在服务器启动的时候创建，执行init()方法来加载配置文件，执行doFilter()方法，最后执行destory()方法 )。</li>
 <li>加载Struts配置文件信息，找到相应的action类，并实例化。</li>
@@ -170,9 +168,8 @@
 <li>从配置文件中找到返回结果</li>
 <li>转发到相应的页面。</li>
 </ol>
-<p>##为什么用Spring框架<br>Sptirng是一个轻量级的控制反转、面向切面、面向接口和事务管理的开源框架。<br>IOC：控制反转，交给Spring配置来创建对象和注入依赖对象。好处是松耦合。  </p>
-<p>###底层原理</p>
-<ol>
+<h2 id="为什么用Spring框架"><a href="#为什么用Spring框架" class="headerlink" title="为什么用Spring框架"></a>为什么用Spring框架</h2><p>Sptirng是一个轻量级的控制反转、面向切面、面向接口和事务管理的开源框架。<br>IOC：控制反转，交给Spring配置来创建对象和注入依赖对象。好处是松耦合。  </p>
+<h3 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h3><ol>
 <li>xml配置文件创建对象类</li>
 <li>创建工厂类，通过dom4j解析xml文件，通过反射创建类。</li>
 </ol>
