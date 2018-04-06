@@ -33,7 +33,7 @@
 <meta property="og:site_name" content="余明星的博客">
 <meta property="og:description" content="Mybatis多参数传入方案1public List getXXXBeanList(String xxId, String xxCode);   　　select t.* from tableName where id = #{0} and name = #{1}    由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始 方案2（推荐">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-06T14:19:44.214Z">
+<meta property="og:updated_time" content="2018-04-06T14:28:33.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis多参数传入">
 <meta name="twitter:description" content="Mybatis多参数传入方案1public List getXXXBeanList(String xxId, String xxCode);   　　select t.* from tableName where id = #{0} and name = #{1}    由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始 方案2（推荐">
@@ -183,17 +183,11 @@
 <select id="getXXXBeanList" resulttype="XXBean"><br><br>　　select t.* from tableName where id = #{0} and name = #{1}<br><br></select>  
 
 <p>由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始</p>
-<h2 id="方案2（推荐）基于注解"><a href="#方案2（推荐）基于注解" class="headerlink" title="方案2（推荐）基于注解"></a>方案2（推荐）基于注解</h2><p>public List<xxxbean> getXXXBeanList(@Param(“id”)String id, @Param(“code”)String code);  </xxxbean></p>
-<select id="getXXXBeanList" resulttype="XXBean"><br><br>　　select t.* from tableName where id = #{id} and name = #{code}<br><br></select>  
-
+<h2 id="方案2（推荐）基于注解"><a href="#方案2（推荐）基于注解" class="headerlink" title="方案2（推荐）基于注解"></a>方案2（推荐）基于注解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;XXXBean&gt; getXXXBeanList(@Param(&quot;id&quot;)String id, @Param(&quot;code&quot;)String code);  </span><br><span class="line"></span><br><span class="line">&lt;select id=&quot;getXXXBeanList&quot; resultType=&quot;XXBean&quot;&gt;</span><br><span class="line"></span><br><span class="line">　　select t.* from tableName where id = #&#123;id&#125; and name = #&#123;code&#125;  </span><br><span class="line"></span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 <p>由于是多参数那么就不能使用parameterType， 这里用@Param来指定哪一个</p>
-<h2 id="三、Map封装多参数："><a href="#三、Map封装多参数：" class="headerlink" title="三、Map封装多参数："></a>三、Map封装多参数：</h2><p>public List<xxxbean> getXXXBeanList(HashMap map);  </xxxbean></p>
-<select id="getXXXBeanList" parametertype="hashmap" resulttype="XXBean"><br><br>　　select 字段… from XXX where id=#{xxId} code = #{xxCode}<br><br></select>  
-
+<h2 id="三、Map封装多参数："><a href="#三、Map封装多参数：" class="headerlink" title="三、Map封装多参数："></a>三、Map封装多参数：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;XXXBean&gt; getXXXBeanList(HashMap map);  </span><br><span class="line"></span><br><span class="line">&lt;select id=&quot;getXXXBeanList&quot; parameterType=&quot;hashmap&quot; resultType=&quot;XXBean&quot;&gt;</span><br><span class="line"></span><br><span class="line">　　select 字段... from XXX where id=#&#123;xxId&#125; code = #&#123;xxCode&#125;  </span><br><span class="line"></span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 <p>其中hashmap是mybatis自己配置好的直接使用就行。map中key的名字是那个就在#{}使用那个，map如何封装就不用了我说了吧。 </p>
-<h2 id="四、List封装in："><a href="#四、List封装in：" class="headerlink" title="四、List封装in："></a>四、List封装in：</h2><p>public List<xxxbean> getXXXBeanList(List<string> list);  </string></xxxbean></p>
-<select id="getXXXBeanList" resulttype="XXBean"><br>　　select 字段… from XXX where id in<br>　　<foreach item="item" index="index" collection="list" open="(" separator="," close=")"><br>　　　　#{item}<br>　　</foreach><br></select>  
-
+<h2 id="四、List封装in："><a href="#四、List封装in：" class="headerlink" title="四、List封装in："></a>四、List封装in：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;XXXBean&gt; getXXXBeanList(List&lt;String&gt; list);  </span><br><span class="line"></span><br><span class="line">&lt;select id=&quot;getXXXBeanList&quot; resultType=&quot;XXBean&quot;&gt;</span><br><span class="line">　　select 字段... from XXX where id in</span><br><span class="line">　　&lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot; 		open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;  </span><br><span class="line">　　　　#&#123;item&#125;  </span><br><span class="line">　　&lt;/foreach&gt;  </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 <p>foreach 最后的效果是select 字段… from XXX where id in (‘1’,’2’,’3’,’4’) </p>
 
         </div>
