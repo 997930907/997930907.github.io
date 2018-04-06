@@ -152,10 +152,7 @@
                             <p>
                                 <strong>Mybatis多参数传入</strong> <small class="post-date">at: 2018-04-06</small>
                                 <br>
-                                Mybatis多参数传入方案1public List getXXXBeanList(String xxId, String xxCode);  
-　　select t.* from tableName where id = #{0} and name = #{1}  
-
-由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个..
+                                Mybatis多参数传入方案11234567public List&lt;XXXBean&gt; getXXXBeanList(String xxId, String xxCode);  &lt;select id=&quot;getXXXBeanList&quot; resultType=&quot;XXBean&quot;&gt;　　select t..
                             </p>
                             <button class="button is-info">Read</button>
                         </div>
