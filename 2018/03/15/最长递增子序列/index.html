@@ -33,7 +33,7 @@
 <meta property="og:site_name" content="余明星的博客">
 <meta property="og:description" content="最长递增子序列 O(nlog(n))1. 题目 给定一个数组arr[0..8] ={ 2，1 ，5 ，3 ，6，4， 8 ，9， 7},求该数组的最长递增子序列。 2. 分析 定义一个数组H[n],当前令 i = 0 to 8 逐个考察数组arr[],H[n]中存放当前位置下的最长递增子序列。定义一个全局变量len，记录目前最大的长度。    首先从arr[0]开始，令H[0] = arr[0]，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-15T13:16:00.383Z">
+<meta property="og:updated_time" content="2018-04-02T10:40:55.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最长递增子序列">
 <meta name="twitter:description" content="最长递增子序列 O(nlog(n))1. 题目 给定一个数组arr[0..8] ={ 2，1 ，5 ，3 ，6，4， 8 ，9， 7},求该数组的最长递增子序列。 2. 分析 定义一个数组H[n],当前令 i = 0 to 8 逐个考察数组arr[],H[n]中存放当前位置下的最长递增子序列。定义一个全局变量len，记录目前最大的长度。    首先从arr[0]开始，令H[0] = arr[0]，">
@@ -185,7 +185,7 @@
 <h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><p> 定义一个数组H[n],当前令 i = 0 to 8 逐个考察数组arr[],H[n]中存放当前位置下的最长递增子序列。定义一个全局变量len，记录目前最大的长度。  </p>
 <ul>
 <li>首先从arr[0]开始，令H[0] = arr[0]，len=1，j=0</li>
-<li>然后考察arr[1]==1，从H[]中找到第一个比arr[1]大的数，是1，将H[0]中的2替换成1 H[]={1}</li>
+<li>然后考察arr[1]==1，从H[]中找到第一个比arr[1]大的数，是2，将H[0]中的2替换成1 H[]={1}</li>
 <li>然后考察arr[2]==5，从H[]中找到第一个比arr[2]大的数，没有，然后j++，j==1，将5填进H[j]中，H[j]=5 H[]={1,5}</li>
 <li>然后考察arr[3]==3，从H[]中找到第一个比arr[2]大的数，是5，将H[1]中的5替换成3 H[]={1,3}</li>
 <li>然后考察arr[4]==6，从H[]中找到第一个比arr[4]大的数，没有，然后j++，j==2，将5填进H[j]中，H[j]=6 H[]={1,3,6}</li>

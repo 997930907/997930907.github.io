@@ -23,20 +23,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   
-  <title>替换空格 | 余明星的博客</title>
+  <title>Mybatis多参数传入 | 余明星的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="替换空格1. 题目 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 2. 分析   通过new一个空字符串对象，将原来的字符串的每个字符，一个一个的添加到新的字符串里，用StringBuilder中的append方法来添加要替换的字符串（该位置为空时）或者是原来的字符（不为空时）。 3. 代">
-<meta name="keywords" content="剑指offer">
+  <meta name="description" content="Mybatis多参数传入方案1public List getXXXBeanList(String xxId, String xxCode);   　　select t.* from tableName where id = #{0} and name = #{1}    由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始 方案2（推荐">
+<meta name="keywords" content="Mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="替换空格">
-<meta property="og:url" content="http://yumingxing.github.io/2018/03/20/剑指offer：替换空格/index.html">
+<meta property="og:title" content="Mybatis多参数传入">
+<meta property="og:url" content="http://yumingxing.github.io/2018/04/06/mybatis多参数传入/index.html">
 <meta property="og:site_name" content="余明星的博客">
-<meta property="og:description" content="替换空格1. 题目 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 2. 分析   通过new一个空字符串对象，将原来的字符串的每个字符，一个一个的添加到新的字符串里，用StringBuilder中的append方法来添加要替换的字符串（该位置为空时）或者是原来的字符（不为空时）。 3. 代">
+<meta property="og:description" content="Mybatis多参数传入方案1public List getXXXBeanList(String xxId, String xxCode);   　　select t.* from tableName where id = #{0} and name = #{1}    由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始 方案2（推荐">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-06T14:14:31.390Z">
+<meta property="og:updated_time" content="2018-04-06T14:19:44.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="替换空格">
-<meta name="twitter:description" content="替换空格1. 题目 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 2. 分析   通过new一个空字符串对象，将原来的字符串的每个字符，一个一个的添加到新的字符串里，用StringBuilder中的append方法来添加要替换的字符串（该位置为空时）或者是原来的字符（不为空时）。 3. 代">
+<meta name="twitter:title" content="Mybatis多参数传入">
+<meta name="twitter:description" content="Mybatis多参数传入方案1public List getXXXBeanList(String xxId, String xxCode);   　　select t.* from tableName where id = #{0} and name = #{1}    由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始 方案2（推荐">
   
     <link rel="alternate" href="/atom.xml" title="余明星的博客" type="application/atom+xml">
   
@@ -162,27 +162,40 @@
     <div class="container post-box">
         <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
             <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
-                <strong>替换空格</strong>
+                <strong>Mybatis多参数传入</strong>
             </h1>
             
             <div class="is-flex align-center">
                 <img class="post-avatar" src="http://yumingxing.github.io/images/my.png">
                 <span style="padding:0 10px;"> <span class="sub-title">By</span> 余明星</span>
-                <span class="post-date sub-title">at: 2018-03-20</span>
+                <span class="post-date sub-title">at: 2018-04-06</span>
             </div>
             
                 <div>
                     
-                         <a class="tag is-post-tag" href="/tags/剑指offer/">剑指offer</a>
+                         <a class="tag is-post-tag" href="/tags/Mybatis/">Mybatis</a>
                     
                 </div>
             
         </div>
         <div class="content" style="overflow: auto">
-            <h1 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h1><h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1. 题目"></a>1. 题目</h2><p> 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><p>   通过new一个空字符串对象，将原来的字符串的每个字符，一个一个的添加到新的字符串里，用StringBuilder中的append方法来添加要替换的字符串（该位置为空时）或者是原来的字符（不为空时）。</p>
-<h2 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">解法1. </span><br><span class="line">public class Solution &#123;</span><br><span class="line">	public String replaceSpace(StringBuffer str) &#123;</span><br><span class="line">		if(str == null ) return null;</span><br><span class="line">		</span><br><span class="line">		StringBuilder newStr = new StringBuilder();</span><br><span class="line">		for(int i=0;i&lt;str.length();i++) &#123;</span><br><span class="line">			if(str.charAt(i)==&apos; &apos;) &#123;</span><br><span class="line">				newStr.append(&quot;%20&quot;);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				newStr.append(str.charAt(i));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return newStr.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">解法2.</span><br><span class="line">public class Solution &#123;</span><br><span class="line">	public String replaceSpace(StringBuffer str) &#123;</span><br><span class="line">		for(int i=str.length()-1;i&gt;=0;i--) &#123;</span><br><span class="line">			if(str.charAt(i)==&apos; &apos;) &#123;</span><br><span class="line">				str.deleteCharAt(i);</span><br><span class="line">				str.insert(i, &quot;%20&quot;);</span><br><span class="line">			&#125; </span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return str.toString();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="Mybatis多参数传入"><a href="#Mybatis多参数传入" class="headerlink" title="Mybatis多参数传入"></a>Mybatis多参数传入</h1><h2 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h2><p>public List<xxxbean> getXXXBeanList(String xxId, String xxCode);  </xxxbean></p>
+<select id="getXXXBeanList" resulttype="XXBean"><br><br>　　select t.* from tableName where id = #{0} and name = #{1}<br><br></select>  
+
+<p>由于是多参数那么就不能使用parameterType， 改用#｛index｝是第几个就用第几个的索引，索引从0开始</p>
+<h2 id="方案2（推荐）基于注解"><a href="#方案2（推荐）基于注解" class="headerlink" title="方案2（推荐）基于注解"></a>方案2（推荐）基于注解</h2><p>public List<xxxbean> getXXXBeanList(@Param(“id”)String id, @Param(“code”)String code);  </xxxbean></p>
+<select id="getXXXBeanList" resulttype="XXBean"><br><br>　　select t.* from tableName where id = #{id} and name = #{code}<br><br></select>  
+
+<p>由于是多参数那么就不能使用parameterType， 这里用@Param来指定哪一个</p>
+<h2 id="三、Map封装多参数："><a href="#三、Map封装多参数：" class="headerlink" title="三、Map封装多参数："></a>三、Map封装多参数：</h2><p>public List<xxxbean> getXXXBeanList(HashMap map);  </xxxbean></p>
+<select id="getXXXBeanList" parametertype="hashmap" resulttype="XXBean"><br><br>　　select 字段… from XXX where id=#{xxId} code = #{xxCode}<br><br></select>  
+
+<p>其中hashmap是mybatis自己配置好的直接使用就行。map中key的名字是那个就在#{}使用那个，map如何封装就不用了我说了吧。 </p>
+<h2 id="四、List封装in："><a href="#四、List封装in：" class="headerlink" title="四、List封装in："></a>四、List封装in：</h2><p>public List<xxxbean> getXXXBeanList(List<string> list);  </string></xxxbean></p>
+<select id="getXXXBeanList" resulttype="XXBean"><br>　　select 字段… from XXX where id in<br>　　<foreach item="item" index="index" collection="list" open="(" separator="," close=")"><br>　　　　#{item}<br>　　</foreach><br></select>  
+
+<p>foreach 最后的效果是select 字段… from XXX where id in (‘1’,’2’,’3’,’4’) </p>
+
         </div>
         <div class="post-reply">
             
