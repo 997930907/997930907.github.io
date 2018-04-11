@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="full-height">
+<script>
+  var linkEle = document.getElementById("myid");
+  var tmplink = linkEle.href;
+
+  var tmptitle = document.title;
+  document.addEventListener('visibilitychange', function() {
+    var isHidden = document.hidden;
+    if (isHidden) {
+      document.title = '喔唷，崩溃啦！';
+      linkEle.href = '/images/error.png';
+    } else {
+      document.title = tmptitle;
+      linkEle.href = tmplink;
+
+    }
+  });
+</script>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>网站高并发访问处理办法 | 余明星的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="网站高并发访问处理办法1. 服务器面对上百万的高并发请求处理办法？1. 硬件升级a.提升硬件性能 2. 负载均衡 做集群a.用N台服务器做集群，根据负载策略把请求分发到集群中的每一台服务器上，让整个服务器群来处理。   b.对于身份验证等问题，使用session复制、session共享、单点登录、读取cookies等策略。 3. 数据库优化a.使用索引可以快速访问数据库表中特定信息。 b.分表,读">
+<meta name="keywords" content="服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站高并发访问处理办法">
+<meta property="og:url" content="http://yumingxing.github.io/2018/04/01/网站高并发访问处理办法/index.html">
+<meta property="og:site_name" content="余明星的博客">
+<meta property="og:description" content="网站高并发访问处理办法1. 服务器面对上百万的高并发请求处理办法？1. 硬件升级a.提升硬件性能 2. 负载均衡 做集群a.用N台服务器做集群，根据负载策略把请求分发到集群中的每一台服务器上，让整个服务器群来处理。   b.对于身份验证等问题，使用session复制、session共享、单点登录、读取cookies等策略。 3. 数据库优化a.使用索引可以快速访问数据库表中特定信息。 b.分表,读">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-11T10:04:06.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网站高并发访问处理办法">
+<meta name="twitter:description" content="网站高并发访问处理办法1. 服务器面对上百万的高并发请求处理办法？1. 硬件升级a.提升硬件性能 2. 负载均衡 做集群a.用N台服务器做集群，根据负载策略把请求分发到集群中的每一台服务器上，让整个服务器群来处理。   b.对于身份验证等问题，使用session复制、session共享、单点登录、读取cookies等策略。 3. 数据库优化a.使用索引可以快速访问数据库表中特定信息。 b.分表,读">
+  
+    <link rel="alternate" href="/atom.xml" title="余明星的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" id="myid" href="http://yumingxing.github.io/images/my.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">余明星</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                主页
+            </a>
+            
+            <a class="nav-item" href="/archives/">
+                所有文章
+            </a>
+            
+            <a class="nav-item" href="/about">
+                关于
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                标签
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                主页
+            </a>
+            
+            <a class="nav-item flex-1" href="/archives/">
+                所有文章
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                关于
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                标签
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>网站高并发访问处理办法</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="http://yumingxing.github.io/images/my.png">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> 余明星</span>
+                <span class="post-date sub-title">at: 2018-04-01</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/服务器/">服务器</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h1 id="网站高并发访问处理办法"><a href="#网站高并发访问处理办法" class="headerlink" title="网站高并发访问处理办法"></a>网站高并发访问处理办法</h1><h2 id="1-服务器面对上百万的高并发请求处理办法？"><a href="#1-服务器面对上百万的高并发请求处理办法？" class="headerlink" title="1. 服务器面对上百万的高并发请求处理办法？"></a>1. 服务器面对上百万的高并发请求处理办法？</h2><h3 id="1-硬件升级"><a href="#1-硬件升级" class="headerlink" title="1. 硬件升级"></a>1. 硬件升级</h3><pre><code>a.提升硬件性能
+</code></pre><h3 id="2-负载均衡-做集群"><a href="#2-负载均衡-做集群" class="headerlink" title="2. 负载均衡 做集群"></a>2. 负载均衡 做集群</h3><pre><code>a.用N台服务器做集群，根据负载策略把请求分发到集群中的每一台服务器上，让整个服务器群来处理。  
+b.对于身份验证等问题，使用session复制、session共享、单点登录、读取cookies等策略。
+</code></pre><h3 id="3-数据库优化"><a href="#3-数据库优化" class="headerlink" title="3. 数据库优化"></a>3. 数据库优化</h3><pre><code>a.使用索引可以快速访问数据库表中特定信息。
+b.分表,读写分离，让主数据库处理事务性的增、删、改操作，从数据库做查询操作。
+</code></pre><h3 id="4-缓存技术（Redis、MemCache"><a href="#4-缓存技术（Redis、MemCache" class="headerlink" title="4.缓存技术（Redis、MemCache)"></a>4.缓存技术（Redis、MemCache)</h3><pre><code>a.将动态数据存储到缓存中，不用再去访问数据库。
+b.Redis稳定持久化，MemCache批量读取快，但备份差。
+</code></pre><h3 id="5-控制大文件的下载"><a href="#5-控制大文件的下载" class="headerlink" title="5.控制大文件的下载"></a>5.控制大文件的下载</h3><pre><code>a.大文件下载会占用很大的流量，消耗CPU，影响系统性能，提供下载的文件尽量不要超过2M，或者将文件放在另一台服务器上。
+</code></pre>
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDc1My8xMTI5MA==">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+      
+       
+        Copyright © 余明星 2018
+      
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
